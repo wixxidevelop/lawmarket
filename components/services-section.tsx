@@ -37,7 +37,7 @@ const services = [
     description:
       "Our lead attorney is a Certified Circuit Civil Mediator who can advise you on whether it makes sense to appeal your case.",
     details:
-      "Attorney Manny Franco is a frequent lecturer to attorney groups on legal matters as well as a Certified Circuit Civil Mediator who frequently performs workers' compensation and personal injury mediations. He is also a successful appellate lawyer who can handle your workers' comp, personal injury or SSDI appeal as necessary.",
+      "Attorney Manny is a frequent lecturer to attorney groups on legal matters as well as a Certified Circuit Civil Mediator who frequently performs workers' compensation and personal injury mediations. He is also a successful appellate lawyer who can handle your workers' comp, personal injury or SSDI appeal as necessary.",
   },
 ]
 

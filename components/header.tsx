@@ -64,11 +64,11 @@ export function Header() {
               </a>
               <div className="w-px h-3 bg-primary-foreground/20" />
               <a
-                href="mailto:contact@francofirm.com"
+                href="mailto:contact@lawmarketfirm.com"
                 className="flex items-center gap-2 hover:opacity-80 transition-opacity"
               >
                 <Mail className="w-3.5 h-3.5 opacity-70" />
-                <span>contact@francofirm.com</span>
+                <span>contact@lawmarketfirm.com</span>
               </a>
             </div>
           </div>
@@ -215,7 +215,7 @@ export function Header() {
                   <span>Call Us</span>
                 </a>
                 <a
-                  href="mailto:contact@francofirm.com"
+                  href="mailto:contact@lawmarketfirm.com"
                   className="flex items-center gap-2 hover:text-foreground transition-colors"
                 >
                   <Mail className="w-4 h-4" />

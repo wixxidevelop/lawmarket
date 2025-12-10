@@ -6,19 +6,19 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
 const testimonials = [
   {
     quote:
-      "Franco law firm will always be my first choice. Only attorney in the Tampa Bay area that will work directly for you! Don't make the mistake of not calling them first.",
+      "Law & Market Firm will always be my first choice. Only attorney in the Tampa Bay area that will work directly for you! Don't make the mistake of not calling them first.",
     author: "Ean B.",
     role: "Workers' Compensation Client",
   },
   {
     quote:
-      "I greatly appreciate Attorney Manuel Franco and his work. You can see the seriousness and enthusiasm in his work. I am grateful for everything they did for my case.",
+      "I greatly appreciate the team and their work. You can see the seriousness and enthusiasm in their work. I am grateful for everything they did for my case.",
     author: "Jorge G.",
     role: "Personal Injury Client",
   },
   {
     quote:
-      "Very grateful to Franco Law Firm and his collaboration group. My disability case was approved. They gave me peace of mind and confidence throughout the entire process.",
+      "Very grateful to Law & Market Firm and their collaboration group. My disability case was approved. They gave me peace of mind and confidence throughout the entire process.",
     author: "Fredy R.",
     role: "Social Security Disability Client",
   },
@@ -48,7 +48,7 @@ const testimonials = [
   },
   {
     quote:
-      "I highly recommend Franco Law Firm to anyone seeking WC legal representation that is fair, honest and will keep your best interests at heart. Thank you for your professionalism.",
+      "I highly recommend Law & Market Firm to anyone seeking WC legal representation that is fair, honest and will keep your best interests at heart. Thank you for your professionalism.",
     author: "Arlington K.",
     role: "Workers' Compensation Client",
   },

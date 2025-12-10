@@ -5,6 +5,10 @@ import type React from "react"
 import { useEffect, useRef, useState } from "react"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { useToast } from "@/hooks/use-toast"
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -16,6 +20,40 @@ export function HeroSection() {
   const [phraseIndex, setPhraseIndex] = useState(0)
   const [typedLength, setTypedLength] = useState(0)
   const [deleting, setDeleting] = useState(false)
+  const { toast } = useToast()
+  const [contactForm, setContactForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "Hello, I'd like a free consultation regarding my case."
+  })
+  const [submitting, setSubmitting] = useState(false)
+
+  const submitConsultation = async () => {
+    if (!contactForm.firstName || !contactForm.lastName || !contactForm.email || !contactForm.message) {
+      toast({ title: "Missing information", description: "Please provide your name, email, and message." })
+      return
+    }
+    setSubmitting(true)
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(contactForm),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data?.error || "Failed to send")
+      toast({ title: "Message sent", description: "We will contact you shortly." })
+      setContactForm({ firstName: "", lastName: "", email: "", phone: "", message: "Hello, I'd like a free consultation regarding my case." })
+      const close = document.querySelector('[data-slot="dialog-close"]') as HTMLButtonElement | null
+      close?.click()
+    } catch (err: any) {
+      toast({ title: "Unable to send", description: err?.message || "Please try again later." })
+    } finally {
+      setSubmitting(false)
+    }
+  }
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -103,16 +141,59 @@ export function HeroSection() {
 
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">
               If you&apos;ve been hurt in an accident at work or on the road, you need to know your medical bills will
-              be taken care of. Franco Law Firm is here to fight for the benefits and compensation you deserve.
+              be taken care of. Law & Market Firm is here to fight for the benefits and compensation you deserve.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="group font-medium">
-                Free Consultation
-                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button variant="outline" size="lg" className="font-medium bg-transparent">
-                Call (813) 872-0929
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button size="lg" className="group font-medium">
+                    Free Consultation
+                    <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Free Consultation</DialogTitle>
+                    <DialogDescription>Send us a quick message and we’ll reach out.</DialogDescription>
+                  </DialogHeader>
+                  <div className="grid gap-4">
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="text-sm text-muted-foreground mb-2 block">First Name</label>
+                        <Input value={contactForm.firstName} onChange={(e) => setContactForm({ ...contactForm, firstName: e.target.value })} placeholder="Your first name" className="bg-background" />
+                      </div>
+                      <div>
+                        <label className="text-sm text-muted-foreground mb-2 block">Last Name</label>
+                        <Input value={contactForm.lastName} onChange={(e) => setContactForm({ ...contactForm, lastName: e.target.value })} placeholder="Your last name" className="bg-background" />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="text-sm text-muted-foreground mb-2 block">Email</label>
+                      <Input type="email" value={contactForm.email} onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })} placeholder="you@email.com" className="bg-background" />
+                    </div>
+                    <div>
+                      <label className="text-sm text-muted-foreground mb-2 block">Phone (optional)</label>
+                      <Input type="tel" value={contactForm.phone} onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })} placeholder="+1929 598 0910" className="bg-background" />
+                    </div>
+                    <div>
+                      <label className="text-sm text-muted-foreground mb-2 block">Message</label>
+                      <Textarea value={contactForm.message} onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })} className="bg-background min-h-[120px]" />
+                    </div>
+                  </div>
+                  <DialogFooter>
+                    <DialogClose asChild>
+                      <Button variant="outline">Cancel</Button>
+                    </DialogClose>
+                    <Button onClick={submitConsultation} disabled={submitting} className="group font-medium">
+                      Send
+                      <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+              <Button asChild variant="outline" size="lg" className="font-medium bg-transparent">
+                <a href="tel:+19295980910">Call +1929 598 0910</a>
               </Button>
             </div>
 
@@ -138,7 +219,7 @@ export function HeroSection() {
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-secondary">
               <img
                 src="/elegant-modern-law-office-interior-with-floor-to-c.jpg"
-                alt="Franco Law Firm office in Tampa Bay"
+                alt="Law & Market Firm office in Tampa Bay"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />

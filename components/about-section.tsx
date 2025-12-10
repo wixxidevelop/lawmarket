@@ -13,7 +13,7 @@ export function AboutSection() {
               Dedicated to Providing Quality Representation
             </h2>
             <p className="text-muted-foreground mt-6 text-lg leading-relaxed">
-              One of the hallmarks of Franco Law Firm is the personal attention we give to our clients. We meet with
+              One of the hallmarks of Law & Market Firm is the personal attention we give to our clients. We meet with
               clients in person but can also conduct meetings via Zoom if that is more comfortable or convenient for
               you.
             </p>
@@ -25,7 +25,7 @@ export function AboutSection() {
             <div className="mt-6 p-4 bg-primary/5 rounded-lg border border-primary/10">
               <p className="text-foreground font-medium">Hablamos Español</p>
               <p className="text-muted-foreground text-sm mt-1">
-                Franco Law Firm is a Spanish-speaking bilingual law firm serving the entire Tampa Bay area.
+                Law & Market Firm is a Spanish-speaking bilingual law firm serving the entire Tampa Bay area.
               </p>
             </div>
           </div>
@@ -36,7 +36,7 @@ export function AboutSection() {
                 <div className="aspect-[3/4] rounded-lg overflow-hidden bg-muted">
                   <img
                     src="/modern-office-meeting-room-glass-walls-professiona.jpg"
-                    alt="Franco Law Firm consultation room"
+                    alt="Law & Market Firm consultation room"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -53,7 +53,7 @@ export function AboutSection() {
                 <div className="aspect-[3/4] rounded-lg overflow-hidden bg-muted">
                   <img
                     src="https://i.ibb.co/3YMqVcJK/046a000a-c37a-49a5-8fd9-f43dfd631445.jpg"
-                    alt="Attorney Manny Franco"
+                    alt="Attorney Manny — Law & Market Firm"
                     className="w-full h-full object-cover"
                   />
                 </div>
