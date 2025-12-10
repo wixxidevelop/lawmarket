@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from "@/components/ui/dialog"
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 const team = [
   {
@@ -12,7 +13,7 @@ const team = [
     email: "mannyRodriguez@lawmarketfirm.com",
 
     bio:
-      "Manny Rodriguez is an accomplished investment and corporate attorney with a J.D. from Yale University and a B.A. in Political Science. He specializes in structuring investment deals, M&A transactions, regulatory compliance, and corporate governance for startups, private equity firms, and multinational corporations. Known for his strategic insight and integrity, Manny has successfully guided clients through high-value transactions and complex regulatory matters. He combines legal expertise with business acumen to maximize growth opportunities while mitigating risk.",
+      "Manny Rodriguez is an investment and corporate attorney with a J.D. from Yale University. He specializes in structuring investment deals, M&A transactions, and regulatory compliance for startups, private equity firms, and corporations.Known for strategic insight and integrity, Manny combines legal expertise with business acumen to guide clients through complex transactions while mitigating risk.",
     education: ["JD, Yale University", "BA in Political Science"],
     practiceAreas: [
       "Investment Projects & Portfolio Management",
@@ -94,12 +95,13 @@ export function TeamSection() {
                   </DialogTrigger>
                 </div>
               </div>
-              <DialogContent>
+              <DialogContent className="sm:max-w-xl max-h-[80vh]">
                 <DialogHeader>
                   <DialogTitle>{member.name}</DialogTitle>
                   <DialogDescription>{member.role}</DialogDescription>
                 </DialogHeader>
-                <div className="space-y-4">
+                <ScrollArea className="max-h-[64vh] sm:max-h-[68vh]">
+                  <div className="space-y-4 pr-2">
                   <div className="text-muted-foreground">{member.bio}</div>
                   {member.education && (
                     <div className="rounded-lg border p-4">
@@ -112,9 +114,15 @@ export function TeamSection() {
                     </div>
                   )}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="rounded-lg border p-4">
-                      <div className="text-sm text-muted-foreground">Email</div>
-                      <a href={`mailto:${member.email}`} className="text-foreground font-medium hover:underline">{member.email}</a>
+                    <div className="rounded-md border p-2 w-fit max-w-[240px]">
+                      <div className="text-xs text-muted-foreground">Email</div>
+                      <a
+                        href={`mailto:${member.email}`}
+                        className="block truncate text-sm text-foreground font-medium hover:underline"
+                        title={member.email}
+                      >
+                        {member.email}
+                      </a>
                     </div>
                     {member.phone && (
                       <div className="rounded-lg border p-4">
@@ -136,7 +144,8 @@ export function TeamSection() {
                       ))}
                     </div>
                   </div>
-                </div>
+                  </div>
+                </ScrollArea>
                 <DialogFooter>
                   <DialogClose asChild>
                     <Button variant="outline">Close</Button>
