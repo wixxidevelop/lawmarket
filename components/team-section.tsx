@@ -12,7 +12,7 @@ const team = [
     email: "mannyRodriguez@lawmarketfirm.com",
 
     bio:
-      "Accomplished attorney specializing in investment projects, corporate law, and regulatory compliance. Manny represents venture-backed startups, private equity firms, and multinational corporations, focusing on deal structuring, due diligence, M&A transactions, and cross-border regulatory matters. He combines meticulous legal analysis with practical business insight to help clients achieve compliance and financial objectives while mitigating risk. Known for strategic foresight and integrity, he has guided clients through high-value transactions and complex regulatory landscapes, mentors young attorneys, and contributes to industry discussions on investment law and emerging market regulations.",
+      "Manny Rodriguez is an accomplished investment and corporate attorney with a J.D. from Yale University and a B.A. in Political Science. He specializes in structuring investment deals, M&A transactions, regulatory compliance, and corporate governance for startups, private equity firms, and multinational corporations. Known for his strategic insight and integrity, Manny has successfully guided clients through high-value transactions and complex regulatory matters. He combines legal expertise with business acumen to maximize growth opportunities while mitigating risk.",
     education: ["JD, Yale University", "BA in Political Science"],
     practiceAreas: [
       "Investment Projects & Portfolio Management",
