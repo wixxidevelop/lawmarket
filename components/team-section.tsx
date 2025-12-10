@@ -7,13 +7,19 @@ const team = [
   {
     name: "Manny Rodriguez",
     role: "lawyer",
-    specialty: "Investment cases.",
+    specialty: "Investment projects, corporate law, compliance",
     image: "https://i.ibb.co/8HN1fX6/8558682a-55bb-4475-a460-061fc97a31c8.jpg",
-    email: "Manny Rodriguez@lawmarketfirm.com",
-   
+    email: "mannyRodriguez@lawmarketfirm.com",
+
     bio:
-      "Dedicated trial attorney focused on investment and injury cases, delivering strategic representation with client-first care.",
-    practiceAreas: ["Workers' Compensation", "Personal Injury", "Social Security Disability", "Appeals"],
+      "Accomplished attorney specializing in investment projects, corporate law, and regulatory compliance. Manny represents venture-backed startups, private equity firms, and multinational corporations, focusing on deal structuring, due diligence, M&A transactions, and cross-border regulatory matters. He combines meticulous legal analysis with practical business insight to help clients achieve compliance and financial objectives while mitigating risk. Known for strategic foresight and integrity, he has guided clients through high-value transactions and complex regulatory landscapes, mentors young attorneys, and contributes to industry discussions on investment law and emerging market regulations.",
+    education: ["JD, Yale University", "BA in Political Science"],
+    practiceAreas: [
+      "Investment Projects & Portfolio Management",
+      "Corporate & Commercial Law",
+      "Mergers & Acquisitions",
+      "Regulatory Compliance & Risk Management",
+    ],
   },
   {
     name: "Sean Guerra",
@@ -95,6 +101,16 @@ export function TeamSection() {
                 </DialogHeader>
                 <div className="space-y-4">
                   <div className="text-muted-foreground">{member.bio}</div>
+                  {member.education && (
+                    <div className="rounded-lg border p-4">
+                      <div className="text-sm text-muted-foreground mb-2">Education</div>
+                      <ul className="list-disc pl-5 space-y-1 text-foreground">
+                        {member.education.map((item: string) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="rounded-lg border p-4">
                       <div className="text-sm text-muted-foreground">Email</div>
